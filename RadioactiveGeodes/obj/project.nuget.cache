@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2lzcURfPXO4/1mCeXccz3bb/glapO5Rs/OQHKJV3qGjyx0KiyBPOGZzwwKGWWUY7zVu5Ley8rFUcxrAmFoCprQ==",
+  "success": true,
+  "projectFilePath": "F:\\build\\Stardew Valley Modding\\RadioactiveGeodes\\RadioactiveGeodes\\RadioactiveGeodes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\justa\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\3.3.0\\pathoschild.stardew.modbuildconfig.3.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\build\\Stardew Valley Modding\\RadioactiveGeodes\\RadioactiveGeodes\\RadioactiveGeodes.csproj": {}
+  },
+  "projects": {
+    "F:\\build\\Stardew Valley Modding\\RadioactiveGeodes\\RadioactiveGeodes\\RadioactiveGeodes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\build\\Stardew Valley Modding\\RadioactiveGeodes\\RadioactiveGeodes\\RadioactiveGeodes.csproj",
+        "projectName": "RadioactiveGeodes",
+        "projectPath": "F:\\build\\Stardew Valley Modding\\RadioactiveGeodes\\RadioactiveGeodes\\RadioactiveGeodes.csproj",
+        "packagesPath": "C:\\Users\\justa\\.nuget\\packages\\",
+        "outputPath": "F:\\build\\Stardew Valley Modding\\RadioactiveGeodes\\RadioactiveGeodes\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\justa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net452"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "F:\\build\\OfflineNugetPackageSource": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net452": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net452": {
+          "dependencies": {
+            "Pathoschild.Stardew.ModBuildConfig": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.405\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
