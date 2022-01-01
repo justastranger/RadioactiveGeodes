@@ -38,9 +38,7 @@
     </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>..\Lib\MonoGame.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoMod.Common">
-      <HintPath>..\Lib\MonoMod.Common.dll</HintPath>
+      <CopyLocal></CopyLocal>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
@@ -56,9 +54,6 @@
     </Reference>
     <Reference Include="StardewValley.GameData">
       <HintPath>..\Lib\StardewValley.GameData.dll</HintPath>
-    </Reference>
-    <Reference Include="TMXTile">
-      <HintPath>..\Lib\TMXTile.dll</HintPath>
     </Reference>
     <Reference Include="xTile">
       <HintPath>..\Lib\xTile.dll</HintPath>
