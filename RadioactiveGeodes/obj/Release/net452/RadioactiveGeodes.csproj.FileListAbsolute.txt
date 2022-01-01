@@ -1,7 +1,0 @@
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net452\RadioactiveGeodes.dll
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net452\RadioactiveGeodes.pdb
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net452\RadioactiveGeodes.AssemblyInfoInputs.cache
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net452\RadioactiveGeodes.AssemblyInfo.cs
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net452\RadioactiveGeodes.csproj.CoreCompileInputs.cache
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net452\RadioactiveGeodes.dll
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net452\RadioactiveGeodes.pdb

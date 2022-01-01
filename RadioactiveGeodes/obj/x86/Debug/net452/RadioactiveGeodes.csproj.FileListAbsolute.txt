@@ -1,4 +1,0 @@
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\x86\Debug\net452\RadioactiveGeodes.dll
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\x86\Debug\net452\RadioactiveGeodes.csprojAssemblyReference.cache
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\x86\Debug\net452\RadioactiveGeodes.AssemblyInfoInputs.cache
-F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\x86\Debug\net452\RadioactiveGeodes.AssemblyInfo.cs
