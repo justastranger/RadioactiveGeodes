@@ -1,0 +1,13 @@
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net6.0\RadioactiveGeodes.deps.json
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net6.0\RadioactiveGeodes.dll
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net6.0\RadioactiveGeodes.pdb
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net6.0\MonoMod.Common.dll
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\bin\Release\net6.0\TMXTile.dll
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.GeneratedMSBuildEditorConfig.editorconfig
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.AssemblyInfoInputs.cache
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.AssemblyInfo.cs
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.csproj.CoreCompileInputs.cache
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.csproj.CopyComplete
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.dll
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.pdb
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net6.0\RadioactiveGeodes.csproj.AssemblyReference.cache

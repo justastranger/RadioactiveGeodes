@@ -1,5 +1,5 @@
 ﻿using System;
-using Harmony;
+using HarmonyLib;
 using Microsoft.Xna.Framework.Input;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -15,7 +15,7 @@ namespace RadioactiveGeodes
         public static IMonitor Logger;
         internal ITranslationHelper i18n => Helper.Translation;
 
-        private readonly HarmonyInstance _harmony = HarmonyInstance.Create("jas.RadioactiveGeodes");
+        private readonly Harmony _harmony = new Harmony("jas.RadioactiveGeodes");
 
         public override void Entry(IModHelper helper)
         {
@@ -61,6 +61,7 @@ namespace RadioactiveGeodes
             {
                 return;
             }
+            if (__result == null) return;
             int stack = __result.Stack;
             if (__result.ParentSheetIndex != 386) return;
             Random r = new Random(DateTime.Now.Millisecond);

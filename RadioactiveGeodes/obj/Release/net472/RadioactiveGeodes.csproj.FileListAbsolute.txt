@@ -1,0 +1,5 @@
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net472\RadioactiveGeodes.csproj.AssemblyReference.cache
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net472\RadioactiveGeodes.GeneratedMSBuildEditorConfig.editorconfig
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net472\RadioactiveGeodes.AssemblyInfoInputs.cache
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net472\RadioactiveGeodes.AssemblyInfo.cs
+F:\build\Stardew Valley Modding\RadioactiveGeodes\RadioactiveGeodes\obj\Release\net472\RadioactiveGeodes.csproj.CoreCompileInputs.cache
