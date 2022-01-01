@@ -4,18 +4,20 @@ using Microsoft.Xna.Framework.Input;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
-using Object = StardewValley.Object;
+using SObject = StardewValley.Object;
 
 namespace RadioactiveGeodes
 {
     public class ModEntry : Mod
     {
+        private static string ModID = "jas.RadioactiveGeodes";
+
         public static Config Config;
 
         public static IMonitor Logger;
         internal ITranslationHelper i18n => Helper.Translation;
 
-        private readonly Harmony _harmony = new Harmony("jas.RadioactiveGeodes");
+        private readonly Harmony _harmony = new(ModID);
 
         public override void Entry(IModHelper helper)
         {
@@ -42,9 +44,15 @@ namespace RadioactiveGeodes
 
                 api.RegisterModConfig(ModManifest, () => Config = new Config(), () => Helper.WriteConfig(Config));
                 api.SetDefaultIngameOptinValue(ModManifest, true);
-                api.RegisterClampedOption(ModManifest, "Chance", "Chance of replacing Iridium Ore with Radioactive Ore", () => Config.Chance, (int val) => Config.Chance = val, 0, 100);
+                api.RegisterClampedOption(ModManifest, "Chance", "Chance of replacing Iridium Ore with Radioactive Ore. Higher numbers lower the chance.", () => Config.Chance, (int val) => Config.Chance = val, 0, 100);
+                api.RegisterSimpleOption(ModManifest, "Debug Mode", "Enabled extra logging information.", () => Config.Debug, (bool val) => Config.Debug = val);
             }
             
+        }
+
+        public new void Dispose()
+        {
+            _harmony.UnpatchAll(ModID);
         }
 
 
@@ -56,18 +64,28 @@ namespace RadioactiveGeodes
 
         static void getTreasureFromGeodePostFix(ref Item __result)
         {
-            // ModEntry.Logger.Log("Postfix Activated with: " + __result.Name + " of stack size " + __result.Stack);
+            if (ModEntry.Config.Debug) ModEntry.Logger.Log("Postfix Activated with: " + __result.Name + " of stack size " + __result.Stack);
             if (!Game1.player.team.mineShrineActivated.Value)
             {
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrine not activated.", LogLevel.Info);
                 return;
             }
-            if (__result == null) return;
-            int stack = __result.Stack;
-            if (__result.ParentSheetIndex != 386) return;
-            Random r = new Random(DateTime.Now.Millisecond);
-            if (r.Next(0,ModEntry.Config.Chance) == 0)
+            if (__result == null)
             {
-                __result = new Object(909, stack);
+                ModEntry.Logger.Log("Null Result from Geode.", LogLevel.Error);
+                return;
+            }
+            // if (__result.ParentSheetIndex != SObject.iridium) return;
+            if (Utility.IsNormalObjectAtParentSheetIndex(__result, SObject.iridium))
+            {
+                var stack = __result.Stack;
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Iridium Ore Detected.", LogLevel.Info);
+                Random r = new(DateTime.Now.Millisecond);
+                if (r.Next(0, ModEntry.Config.Chance) == 0)
+                {
+                    if (ModEntry.Config.Debug) ModEntry.Logger.Log("Radiation Dispensed.", LogLevel.Info);
+                    __result = new SObject(909, stack);
+                }
             }
         }
     }
