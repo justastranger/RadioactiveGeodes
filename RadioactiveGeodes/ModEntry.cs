@@ -21,8 +21,7 @@ namespace RadioactiveGeodes
 
         public override void Entry(IModHelper helper)
         {
-            string startingMessage = i18n.Get("RadioactiveGeodes.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath });
-            Monitor.Log(startingMessage, LogLevel.Trace);
+            Monitor.Log(i18n.Get("RadioactiveGeodes.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath }), LogLevel.Trace);
             Logger = Monitor;
             
 
@@ -64,10 +63,10 @@ namespace RadioactiveGeodes
 
         static void getTreasureFromGeodePostFix(ref Item __result)
         {
-            if (ModEntry.Config.Debug) ModEntry.Logger.Log("Postfix Activated with: " + __result.Name + " of stack size " + __result.Stack);
+            if (ModEntry.Config != null && ModEntry.Config.Debug) ModEntry.Logger.Log("Postfix Activated with: " + __result.Name + " of stack size " + __result.Stack, LogLevel.Info);
             if (!Game1.player.team.mineShrineActivated.Value)
             {
-                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrine not activated.", LogLevel.Info);
+                if (ModEntry.Config != null && ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrine not activated.", LogLevel.Info);
                 return;
             }
             if (__result == null)
@@ -79,11 +78,11 @@ namespace RadioactiveGeodes
             if (Utility.IsNormalObjectAtParentSheetIndex(__result, SObject.iridium))
             {
                 var stack = __result.Stack;
-                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Iridium Ore Detected.", LogLevel.Info);
+                if (ModEntry.Config != null && ModEntry.Config.Debug) ModEntry.Logger.Log("Iridium Ore Detected.", LogLevel.Info);
                 Random r = new(DateTime.Now.Millisecond);
                 if (r.Next(0, ModEntry.Config.Chance) == 0)
                 {
-                    if (ModEntry.Config.Debug) ModEntry.Logger.Log("Radiation Dispensed.", LogLevel.Info);
+                    if (ModEntry.Config != null && ModEntry.Config.Debug) ModEntry.Logger.Log("Radiation Dispensed.", LogLevel.Info);
                     __result = new SObject(909, stack);
                 }
             }
