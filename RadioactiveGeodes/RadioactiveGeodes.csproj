@@ -33,31 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\Lib\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoGame.Framework">
-      <HintPath>..\Lib\MonoGame.Framework.dll</HintPath>
-      <CopyLocal></CopyLocal>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SMAPI.Toolkit.CoreInterfaces">
-      <HintPath>..\Lib\SMAPI.Toolkit.CoreInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Stardew Valley">
-      <HintPath>..\Lib\Stardew Valley.dll</HintPath>
-    </Reference>
-    <Reference Include="StardewModdingAPI">
-      <HintPath>..\Lib\StardewModdingAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="StardewValley.GameData">
-      <HintPath>..\Lib\StardewValley.GameData.dll</HintPath>
-    </Reference>
-    <Reference Include="xTile">
-      <HintPath>..\Lib\xTile.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
