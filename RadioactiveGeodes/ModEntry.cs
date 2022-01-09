@@ -41,10 +41,9 @@ namespace RadioactiveGeodes
             {
                 var api = Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
 
-                api.RegisterModConfig(ModManifest, () => Config = new Config(), () => Helper.WriteConfig(Config));
-                api.SetDefaultIngameOptinValue(ModManifest, true);
-                api.RegisterClampedOption(ModManifest, "Chance", "Chance of replacing Iridium Ore with Radioactive Ore. Higher numbers lower the chance.", () => Config.Chance, (int val) => Config.Chance = val, 0, 100);
-                api.RegisterSimpleOption(ModManifest, "Debug Mode", "Enabled extra logging information.", () => Config.Debug, (bool val) => Config.Debug = val);
+                api.Register(ModManifest, () => Config = new Config(), () => Helper.WriteConfig(Config), false);
+                api.AddNumberOption(ModManifest, () => Config.Chance, (int val) => Config.Chance = val, () => i18n.Get("RadioactiveGeodes.config.chance.name"), () => i18n.Get("RadioactiveGeodes.config.chance.description"), 0, 100, 1);
+                api.AddBoolOption(ModManifest, () => Config.Debug, (bool val) => Config.Debug = val, () => i18n.Get("RadioactiveGeodes.config.debug.name"), () => i18n.Get("RadioactiveGeodes.config.debug.description"));
             }
             
         }
