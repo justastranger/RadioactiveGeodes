@@ -6,5 +6,13 @@
     "UniqueID": "jas.RadioactiveGeodes",
     "EntryDll": "RadioactiveGeodes.dll",
     "MinimumApiVersion": "3.13.0",
-    "UpdateKeys": [ "ModDrop:952722" ]
+    "UpdateKeys": [ "ModDrop:952722" ],
+    "Dependencies": [
+        {
+            "Name": "Generic Mod Config Menu",
+            "UniqueID": "spacechase0.GenericModConfigMenu",
+            "MinimumVersion": "1.7.0",
+            "IsRequired":  false
+        }
+    ]
 }
