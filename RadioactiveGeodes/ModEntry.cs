@@ -19,6 +19,8 @@ namespace RadioactiveGeodes
 
         internal readonly Harmony _harmony = new(ModID);
 
+        internal static readonly Random random = new(DateTime.Now.Millisecond);
+
         public override void Entry(IModHelper helper)
         {
             Monitor.Log(i18n.Get("RadioactiveGeodes.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath }), LogLevel.Trace);
@@ -68,21 +70,25 @@ namespace RadioactiveGeodes
                 ModEntry.Logger.Log("Null Result from Geode.", LogLevel.Error);
                 return;
             }
-            if (!Game1.player.team.mineShrineActivated.Value)
+            // if neither hard mode shrine is active, do not continue
+            if (!Game1.player.team.mineShrineActivated.Value && !Game1.player.team.skullShrineActivated.Value)
             {
                 if (ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrine not activated.", LogLevel.Info);
                 return;
             }
-            // if (__result.ParentSheetIndex != SObject.iridium) return;
-            if (Utility.IsNormalObjectAtParentSheetIndex(__result, SObject.iridium))
+            // check for iridium ore using new method
+            // no more checking tilesheet indexes
+            // only complaint is that not all of the vanilla items have constants for their QIDs
+            if (__result.QualifiedItemId == SObject.iridiumQID)
             {
                 var stack = __result.Stack;
                 if (ModEntry.Config.Debug) ModEntry.Logger.Log("Iridium Ore Detected.", LogLevel.Info);
-                Random r = new(DateTime.Now.Millisecond);
-                if (r.Next(0, ModEntry.Config.Chance) == 0)
+                if (ModEntry.random.Next(0, ModEntry.Config.Chance) == 0)
                 {
                     if (ModEntry.Config.Debug) ModEntry.Logger.Log("Radiation Dispensed.", LogLevel.Info);
-                    __result = new SObject(909, stack);
+                    // replace the result, creating the stack in the new way
+                    // uses the Qualified Item ID for radioactive ore (bars are 910)
+                    __result = ItemRegistry.Create("(O)909", stack);
                 }
             }
         }
