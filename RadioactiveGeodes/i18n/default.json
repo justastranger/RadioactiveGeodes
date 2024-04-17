@@ -5,5 +5,10 @@
     "RadioactiveGeodes.config.debug.name": "Debug mode",
     "RadioactiveGeodes.config.debug.description": "Enables logging of extra information to help decipher issues.",
     "RadioactiveGeodes.config.requirebothshrines.name": "Require Both Hard Mode Shrines",
-    "RadioactiveGeodes.config.requirebothshrines.description": "Require both hard mode shrines to be active at the same time in order for geodes to produce radioactive ore."
+    "RadioactiveGeodes.config.requirebothshrines.description": "Require both hard mode shrines to be active at the same time in order for geodes to produce radioactive ore.",
+    "RadioactiveGeodes.debug.postfix": "Postfix Activated with: {{Name}} of stack size {{Stack}}",
+    "RadioactiveGeodes.debug.postfix.noshrines": "Hard Mode Shrines not activated.",
+    "RadioactiveGeodes.debug.postfix.requirebothshrines": "Not enough Hard Mode Shrines activated.",
+    "RadioactiveGeodes.debug.postfix.iridium": "Iridium Ore Detected.",
+    "RadioactiveGeodes.debug.postfix.jackpot": "Radiation Dispensed."
 }

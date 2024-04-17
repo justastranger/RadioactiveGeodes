@@ -15,7 +15,7 @@ namespace RadioactiveGeodes
         internal static Config Config;
 
         internal static IMonitor Logger;
-        internal ITranslationHelper i18n => Helper.Translation;
+        internal static ITranslationHelper i18n;
 
         internal readonly Harmony _harmony = new(ModID);
 
@@ -25,7 +25,7 @@ namespace RadioactiveGeodes
         {
             Monitor.Log(i18n.Get("RadioactiveGeodes.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath }), LogLevel.Trace);
             Logger = Monitor;
-            
+            i18n = Helper.Translation;
 
             _harmony.Patch(
                 original: AccessTools.Method(typeof(Utility), "getTreasureFromGeode"),
@@ -65,7 +65,8 @@ namespace RadioactiveGeodes
 
         static void getTreasureFromGeodePostFix(ref Item __result)
         {
-            if (ModEntry.Config.Debug) ModEntry.Logger.Log("Postfix Activated with: " + __result.Name + " of stack size " + __result.Stack, LogLevel.Info);
+            if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix", new { __result.Name, __result.Stack }), LogLevel.Info);
+            // 
             if (__result == null)
             {
                 ModEntry.Logger.Log("Null Result from Geode.", LogLevel.Error);
@@ -74,27 +75,25 @@ namespace RadioactiveGeodes
             // if neither hard mode shrine is active, do not continue
             if (!Game1.player.team.mineShrineActivated.Value && !Game1.player.team.skullShrineActivated.Value)
             {
-                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrines not activated.", LogLevel.Info);
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix.noshrines"), LogLevel.Info);
                 return;
             }
             // if only one shrine is active but both are needed
             else if (ModEntry.Config.RequireBothShrines && !(Game1.player.team.mineShrineActivated.Value && Game1.player.team.skullShrineActivated.Value))
             {
-                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Not enough Hard Mode Shrines activated.", LogLevel.Info);
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix.requirebothshrines"), LogLevel.Info);
                 return;
             }
-            // check for iridium ore using new method
-            // no more checking tilesheet indexes
-            // only complaint is that not all of the vanilla items have constants for their QIDs
+            // check for iridium ore
             if (__result.QualifiedItemId == SObject.iridiumQID)
             {
                 var stack = __result.Stack;
-                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Iridium Ore Detected.", LogLevel.Info);
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix.iridium"), LogLevel.Info);
+                
                 if (ModEntry.random.Next(0, ModEntry.Config.Chance) == 0)
                 {
-                    if (ModEntry.Config.Debug) ModEntry.Logger.Log("Radiation Dispensed.", LogLevel.Info);
-                    // replace the result, creating the stack in the new way
-                    // uses the Qualified Item ID for radioactive ore (bars are 910)
+                    if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix.jackpot"), LogLevel.Info);
+                    // replace the stack with radioactive ore in the same quantity
                     __result = ItemRegistry.Create("(O)909", stack);
                 }
             }
