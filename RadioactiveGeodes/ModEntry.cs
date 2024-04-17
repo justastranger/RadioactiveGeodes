@@ -19,8 +19,6 @@ namespace RadioactiveGeodes
 
         internal readonly Harmony _harmony = new(ModID);
 
-        internal static readonly Random random = new(DateTime.Now.Millisecond);
-
         public override void Entry(IModHelper helper)
         {
             Monitor.Log(i18n.Get("RadioactiveGeodes.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath }), LogLevel.Trace);
@@ -90,7 +88,7 @@ namespace RadioactiveGeodes
                 var stack = __result.Stack;
                 if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix.iridium"), LogLevel.Info);
                 
-                if (ModEntry.random.Next(0, ModEntry.Config.Chance) == 0)
+                if (Game1.random.Next(0, ModEntry.Config.Chance) == 0)
                 {
                     if (ModEntry.Config.Debug) ModEntry.Logger.Log(ModEntry.i18n.Get("RadioactiveGeodes.debug.postfix.jackpot"), LogLevel.Info);
                     // replace the stack with radioactive ore in the same quantity
