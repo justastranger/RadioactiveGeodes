@@ -46,6 +46,7 @@ namespace RadioactiveGeodes
                 api.Register(ModManifest, () => Config = new Config(), () => Helper.WriteConfig(Config), false);
                 api.AddNumberOption(ModManifest, () => Config.Chance, (int val) => Config.Chance = val, () => i18n.Get("RadioactiveGeodes.config.chance.name"), () => i18n.Get("RadioactiveGeodes.config.chance.description"), 0, 100, 1);
                 api.AddBoolOption(ModManifest, () => Config.Debug, (bool val) => Config.Debug = val, () => i18n.Get("RadioactiveGeodes.config.debug.name"), () => i18n.Get("RadioactiveGeodes.config.debug.description"));
+                api.AddBoolOption(ModManifest, () => Config.RequireBothShrines, (bool val) => Config.RequireBothShrines = val, () => i18n.Get("RadioactiveGeodes.config.requirebothshrines.name"), () => i18n.Get("RadioactiveGeodes.config.requirebothshrines.description"));
             }
             
         }
@@ -73,7 +74,13 @@ namespace RadioactiveGeodes
             // if neither hard mode shrine is active, do not continue
             if (!Game1.player.team.mineShrineActivated.Value && !Game1.player.team.skullShrineActivated.Value)
             {
-                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrine not activated.", LogLevel.Info);
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Hard Mode Shrines not activated.", LogLevel.Info);
+                return;
+            }
+            // if only one shrine is active but both are needed
+            else if (ModEntry.Config.RequireBothShrines && !(Game1.player.team.mineShrineActivated.Value && Game1.player.team.skullShrineActivated.Value))
+            {
+                if (ModEntry.Config.Debug) ModEntry.Logger.Log("Not enough Hard Mode Shrines activated.", LogLevel.Info);
                 return;
             }
             // check for iridium ore using new method
