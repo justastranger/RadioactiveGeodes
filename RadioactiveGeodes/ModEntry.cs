@@ -21,9 +21,9 @@ namespace RadioactiveGeodes
 
         public override void Entry(IModHelper helper)
         {
+            i18n = Helper.Translation;
             Monitor.Log(i18n.Get("RadioactiveGeodes.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath }), LogLevel.Trace);
             Logger = Monitor;
-            i18n = Helper.Translation;
 
             _harmony.Patch(
                 original: AccessTools.Method(typeof(Utility), "getTreasureFromGeode"),
